@@ -3,7 +3,7 @@ const cheerio = require('cheerio');
 const TeleBot = require('telebot');
 const schedule = require('node-schedule');
 
-const bot = new TeleBot('538144714:AAE2aKAubb4GGwh5yRjX9kCPBzYNBCR5b8A');
+const bot = new TeleBot('');
 
 let lounaatData = {};
 let lounaatArray = ["mauno-electrocity", "mauno", "sodexo-ict", "unica-dental", "china-jade", "snack-city", "alabama",
