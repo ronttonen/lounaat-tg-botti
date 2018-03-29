@@ -3,7 +3,7 @@ const cheerio = require('cheerio');
 const TeleBot = require('telebot');
 const schedule = require('node-schedule');
 
-const bot = new TeleBot('api-id');
+const bot = new TeleBot('538144714:AAE2aKAubb4GGwh5yRjX9kCPBzYNBCR5b8A');
 
 let lounaatData = {};
 let lounaatArray = ["mauno-electrocity", "mauno", "sodexo-ict", "unica-dental", "china-jade", "snack-city", "alabama",
@@ -46,7 +46,7 @@ async function getLounaatData(lounaatArray) {
             
             o++;
             if (o == lounaatArray.length) {
-                console.log(lounasLista);
+                
                 lounaatData = lounasLista;
                 formatAndSendData(lounaatData);
             }
@@ -71,7 +71,7 @@ function deleteData(date, data) {
         }
     }
     lounaatData = data;
-    console.log(lounaatData);
+    
 }
 
 function formatAndSendData(data) {
@@ -85,11 +85,10 @@ function formatAndSendData(data) {
      
  }
   lounaatData = data;
-  console.log(data);
- 
+  
   //searchForMsg(lounaatData, msg);
   console.log('data sent');
-  console.log(lounaatData);
+  
 }
 
 function formatLounasPaikka(string) {
@@ -157,6 +156,7 @@ async function runApp() {
 
 runApp();
 bot.on('text', (msg) => {
+    console.log('message received');
     if(msg.text !== "/start") {
     searchForMsg(lounaatData, msg);
     console.log('Message Sent!')
